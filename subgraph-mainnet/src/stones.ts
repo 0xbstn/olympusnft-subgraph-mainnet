@@ -22,11 +22,11 @@ export function handleTransfer(event: TransferEvent): void {
 }
 
 export function handleApproval(event: ApprovalEvent): void {
-  let user = getOrCreateUser(event.params.owner);
-  if (event.params.spender.toHex() == FURNACE_CONTRACT) {
-    user.amountStonesApprovedFurnace = event.params.amount;
-    user.save();
-  }
+  // let user = getOrCreateUser(event.params.owner);
+  // if (event.params.spender.toHex() == FURNACE_CONTRACT) {
+  //   user.amountStonesApprovedFurnace = event.params.amount;
+  //   user.save();
+  // }
 }
 
 export function handleAuthorityUpdated(event: AuthorityUpdatedEvent): void {}

@@ -10,7 +10,7 @@ import {
 } from "../generated/character/character";
 
 import { Character } from "../generated/schema";
-import { getOrCreateUser, getRarity, getName } from "./utils";
+import { getOrCreateUser, getRarity, getName, getCostLevelUp } from "./utils";
 
 
 export function handlecharacterApproval(event: characterApprovalEvent): void {}
@@ -25,7 +25,7 @@ export function handleEvolve(event: EvolveEvent): void {
   const user = getOrCreateUser( event.params._event.transaction.from)
   const character = Character.load(event.params.id.toString()) as Character;
   character.level = event.params.newLevel.toI32();
-  user.stonesBalance = user.stonesBalance - event.params.newLevel.toI32();
+  //user.stonesBalance =  user.stonesBalance - getCostLevelUp(event.params.newLevel.toI32()-2);
   user.save();
   character.save();
 }
