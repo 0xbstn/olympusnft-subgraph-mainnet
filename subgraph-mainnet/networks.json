@@ -1,0 +1,28 @@
+{
+  "bsc": {
+    "aOlymp": {
+      "address": "0x518FBFA3520bD24b79e141faA6F0768C442824DA"
+    },
+    "chest": {
+      "address": "0x26fdd867f09b26440259f550ecb36d07a0cd954f"
+    },
+    "character": {
+      "address": "0xfdef2ab73198c196cbcebd0c33a77cb1cd907729"
+    },
+    "bOlymp": {
+      "address": "0xe963d09d7ddddaff718500e19afc05d67a01658c"
+    },
+    "powder": {
+      "address": "0xe963d09d7ddddaff718500e19afc05d67a01658c"
+    },
+    "training": {
+      "address": "0x26bec13b3f58054f742232a2eacadfd15c5c704a"
+    },
+    "stones": {
+      "address": "0x20d9e48c39aee6f21281827cfee76eba3366097d"
+    },
+    "furnace": {
+      "address": "0x12d6c1cd1c1b75b358c11c4cda921e71bfcb769d"
+    }
+  }
+}

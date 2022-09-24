@@ -1,0 +1,61 @@
+type User @entity {
+  id: ID!
+  aOlympBalance: BigInt!
+  bOlympBalance: BigInt!
+  powderBalance: BigInt!
+  stonesBalance: Int!
+  chests: [Chest!]! @derivedFrom(field: "owner")
+  characters: [Character!]! @derivedFrom(field: "owner")
+  amountApprovedFurnace: BigInt!
+  amountApprovedChest: BigInt!
+  pendingStonesCount: Int!
+  pendingStones: [PendingStones!]! @derivedFrom(field: "owner")
+  }
+
+type PendingStones @entity {
+  id: ID!
+  owner: User!
+  amount: Int!
+  end: BigInt!
+  alreadyClaim: Boolean!
+}
+
+type Chest @entity {
+  id: ID!
+  owner: User!
+  rarity: ChestRarity!
+  amount: Int!
+}
+
+type Character @entity {
+  id: ID!
+  owner: User!
+  name: CharacterNames!
+  nickname: String
+  rarity: CharacterRarity!
+  level: Int!
+  level_max: Int!
+  trainingTime: Int!
+  trainingEnd: Int!
+}
+enum ChestRarity {
+  Common
+  Uncommon
+  Rare
+  Legendary
+}
+
+enum CharacterNames {
+  Medusa
+  Apollo
+  Achilles
+  Titan
+  Chimera
+  Zeus
+}
+
+enum CharacterRarity {
+  Normal
+  Gold
+  Diamond
+}
