@@ -155,7 +155,7 @@ dataSources:
     name: powder
     network: bsc
     source:
-      address: "0xe963d09d7ddddaff718500e19afc05d67a01658c"
+      address: "0x45b77cc0a3a4c701e7c551641d6077a993d1e023"
       abi: powder
       startBlock: 21595150
     mapping:
@@ -234,3 +234,30 @@ dataSources:
         - event: Redeem(indexed address,uint8)
           handler: handleRedeem
       file: ./src/furnace.ts
+  - kind: ethereum
+    name: busd
+    network: bsc
+    source:
+      address: "0xe9e7cea3dedca5984780bafc599bd69add087d56"
+      abi: busd
+      startBlock: 21595150
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - User
+        - Chest
+        - Character
+        - PendingStones
+      abis:
+        - name: busd
+          file: ./abis/busd.json
+      eventHandlers:
+        - event: Approval(indexed address,indexed address,uint256)
+          handler: handleApproval
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/busd.ts

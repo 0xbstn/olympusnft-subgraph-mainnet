@@ -13,7 +13,7 @@
       "address": "0xe963d09d7ddddaff718500e19afc05d67a01658c"
     },
     "powder": {
-      "address": "0xe963d09d7ddddaff718500e19afc05d67a01658c"
+      "address": "0x45b77cc0a3a4c701e7c551641d6077a993d1e023"
     },
     "training": {
       "address": "0x26bec13b3f58054f742232a2eacadfd15c5c704a"
@@ -23,6 +23,9 @@
     },
     "furnace": {
       "address": "0x12d6c1cd1c1b75b358c11c4cda921e71bfcb769d"
+    },
+    "busd": {
+      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56"
     }
   }
 }
