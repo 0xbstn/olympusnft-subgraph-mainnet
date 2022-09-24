@@ -24,7 +24,7 @@ export function handleTransfer(event: TransferEvent): void {
 export function handleApproval(event: ApprovalEvent): void {
   let user = getOrCreateUser(event.params.owner);
   if (event.params.spender.toHex() == FURNACE_CONTRACT) {
-    user.amountApprovedFurnace = event.params.amount;
+    user.amountStonesApprovedFurnace = event.params.amount;
     user.save();
   }
 }

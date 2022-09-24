@@ -23,9 +23,6 @@
     },
     "furnace": {
       "address": "0x12d6c1cd1c1b75b358c11c4cda921e71bfcb769d"
-    },
-    "busd": {
-      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56"
     }
   }
 }

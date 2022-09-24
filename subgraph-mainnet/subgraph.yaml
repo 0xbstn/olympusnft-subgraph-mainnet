@@ -22,10 +22,6 @@ dataSources:
         - name: aOlymp
           file: ./abis/aOlymp.json
       eventHandlers:
-        - event: Approval(indexed address,indexed address,uint256)
-          handler: handleApproval
-        - event: OwnershipTransferred(indexed address,indexed address)
-          handler: handleOwnershipTransferred
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
       file: ./src/a-olymp.ts
@@ -49,16 +45,10 @@ dataSources:
         - name: chest
           file: ./abis/chest.json
       eventHandlers:
-        - event: ApprovalForAll(indexed address,indexed address,bool)
-          handler: handleApprovalForAll
-        - event: ChestOpened(indexed address,indexed uint256)
-          handler: handleChestOpened
         - event: TransferBatch(indexed address,indexed address,indexed address,uint256[],uint256[])
           handler: handleTransferBatch
         - event: TransferSingle(indexed address,indexed address,indexed address,uint256,uint256)
           handler: handleTransferSingle
-        - event: URI(string,indexed uint256)
-          handler: handleURI
       file: ./src/chest.ts
   - kind: ethereum
     name: character
@@ -80,18 +70,10 @@ dataSources:
         - name: character
           file: ./abis/character.json
       eventHandlers:
-        - event: characterApproval(indexed address,indexed address,indexed uint256)
-          handler: handlecharacterApproval
-        - event: characterApprovalForAll(indexed address,indexed address,bool)
-          handler: handlecharacterApprovalForAll
-        - event: AuthorityUpdated(indexed address,indexed address)
-          handler: handleAuthorityUpdated
         - event: Evolve(indexed uint256,uint256)
           handler: handleEvolve
         - event: Minted(indexed address,indexed uint256,indexed uint256,uint8)
           handler: handleMinted
-        - event: OwnerUpdated(indexed address,indexed address)
-          handler: handleOwnerUpdated
         - event: SetNickname(indexed uint256,string)
           handler: handleSetNickname
         - event: characterTransfer(indexed address,indexed address,indexed uint256)
@@ -142,12 +124,6 @@ dataSources:
         - name: bOlymp
           file: ./abis/bOlymp.json
       eventHandlers:
-        - event: Approval(indexed address,indexed address,uint256)
-          handler: handleApproval
-        - event: AuthorityUpdated(indexed address,indexed address)
-          handler: handleAuthorityUpdated
-        - event: OwnerUpdated(indexed address,indexed address)
-          handler: handleOwnerUpdated
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
       file: ./src/b-olymp.ts
@@ -173,10 +149,6 @@ dataSources:
       eventHandlers:
         - event: Approval(indexed address,indexed address,uint256)
           handler: handleApproval
-        - event: AuthorityUpdated(indexed address,indexed address)
-          handler: handleAuthorityUpdated
-        - event: OwnerUpdated(indexed address,indexed address)
-          handler: handleOwnerUpdated
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
       file: ./src/powder.ts
@@ -202,10 +174,6 @@ dataSources:
       eventHandlers:
         - event: Approval(indexed address,indexed address,uint256)
           handler: handleApproval
-        - event: AuthorityUpdated(indexed address,indexed address)
-          handler: handleAuthorityUpdated
-        - event: OwnerUpdated(indexed address,indexed address)
-          handler: handleOwnerUpdated
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
       file: ./src/stones.ts
@@ -234,30 +202,3 @@ dataSources:
         - event: Redeem(indexed address,uint8)
           handler: handleRedeem
       file: ./src/furnace.ts
-  - kind: ethereum
-    name: busd
-    network: bsc
-    source:
-      address: "0xe9e7cea3dedca5984780bafc599bd69add087d56"
-      abi: busd
-      startBlock: 21595150
-    mapping:
-      kind: ethereum/events
-      apiVersion: 0.0.6
-      language: wasm/assemblyscript
-      entities:
-        - User
-        - Chest
-        - Character
-        - PendingStones
-      abis:
-        - name: busd
-          file: ./abis/busd.json
-      eventHandlers:
-        - event: Approval(indexed address,indexed address,uint256)
-          handler: handleApproval
-        - event: OwnershipTransferred(indexed address,indexed address)
-          handler: handleOwnershipTransferred
-        - event: Transfer(indexed address,indexed address,uint256)
-          handler: handleTransfer
-      file: ./src/busd.ts

@@ -44,9 +44,9 @@ import {
       user.stonesBalance = 0;
       user.powderBalance = BigInt.fromString("0");
       user.pendingStonesCount = 0;
-      user.amountApprovedFurnace = BigInt.fromString("0");
-      user.amountApprovedChest = BigInt.fromString("0");
-  
+      user.amountStonesApprovedFurnace = BigInt.fromString("0");
+      user.amountPowderApprovedFurnace = BigInt.fromString("0");
+
       user.save();
       initializeChest(address);
     }

@@ -6,8 +6,8 @@ type User @entity {
   stonesBalance: Int!
   chests: [Chest!]! @derivedFrom(field: "owner")
   characters: [Character!]! @derivedFrom(field: "owner")
-  amountApprovedFurnace: BigInt!
-  amountApprovedChest: BigInt!
+  amountPowderApprovedFurnace: BigInt!
+  amountStonesApprovedFurnace: BigInt!
   pendingStonesCount: Int!
   pendingStones: [PendingStones!]! @derivedFrom(field: "owner")
   }
