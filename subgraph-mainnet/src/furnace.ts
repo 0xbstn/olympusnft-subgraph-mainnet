@@ -32,7 +32,6 @@ export function handleRedeem(event: RedeemEvent): void {
       (pendingStones.alreadyClaim == false)
     ) {
       pendingStones.alreadyClaim = true;
-      user.stonesBalance += pendingStones.amount;
       pendingStones.save();
     }
   }

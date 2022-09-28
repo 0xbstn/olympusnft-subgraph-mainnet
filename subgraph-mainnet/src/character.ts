@@ -22,11 +22,8 @@ export function handlecharacterApprovalForAll(
 export function handleAuthorityUpdated(event: AuthorityUpdatedEvent): void {}
 
 export function handleEvolve(event: EvolveEvent): void {
-  const user = getOrCreateUser( event.params._event.transaction.from)
   const character = Character.load(event.params.id.toString()) as Character;
   character.level = event.params.newLevel.toI32();
-  //user.stonesBalance =  user.stonesBalance - getCostLevelUp(event.params.newLevel.toI32()-2);
-  user.save();
   character.save();
 }
 
