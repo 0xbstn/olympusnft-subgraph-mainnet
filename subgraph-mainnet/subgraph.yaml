@@ -51,35 +51,6 @@ dataSources:
           handler: handleTransferSingle
       file: ./src/chest.ts
   - kind: ethereum
-    name: character
-    network: bsc
-    source:
-      address: "0xfdef2ab73198c196cbcebd0c33a77cb1cd907729"
-      abi: character
-      startBlock: 21595150
-    mapping:
-      kind: ethereum/events
-      apiVersion: 0.0.6
-      language: wasm/assemblyscript
-      entities:
-        - User
-        - Chest
-        - Character
-        - PendingStones
-      abis:
-        - name: character
-          file: ./abis/character.json
-      eventHandlers:
-        - event: Evolve(indexed uint256,uint256)
-          handler: handleEvolve
-        - event: Minted(indexed address,indexed uint256,indexed uint256,uint8)
-          handler: handleMinted
-        - event: SetNickname(indexed uint256,string)
-          handler: handleSetNickname
-        - event: characterTransfer(indexed address,indexed address,indexed uint256)
-          handler: handlecharacterTransfer
-      file: ./src/character.ts
-  - kind: ethereum
     name: training
     network: bsc
     source:
@@ -202,3 +173,40 @@ dataSources:
         - event: Redeem(indexed address,uint8)
           handler: handleRedeem
       file: ./src/furnace.ts
+  - kind: ethereum
+    name: character
+    network: bsc
+    source:
+      address: "0xfdef2ab73198c196cbcebd0c33a77cb1cd907729"
+      abi: character
+      startBlock: 21595150
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - User
+        - Chest
+        - Character
+        - PendingStones
+      abis:
+        - name: character
+          file: ./abis/character.json
+      eventHandlers:
+        - event: Approval(indexed address,indexed address,indexed uint256)
+          handler: handleApproval
+        - event: ApprovalForAll(indexed address,indexed address,bool)
+          handler: handleApprovalForAll
+        - event: AuthorityUpdated(indexed address,indexed address)
+          handler: handleAuthorityUpdated
+        - event: Evolve(indexed uint256,uint256)
+          handler: handleEvolve
+        - event: Minted(indexed address,indexed uint256,indexed uint256,uint8)
+          handler: handleMinted
+        - event: OwnerUpdated(indexed address,indexed address)
+          handler: handleOwnerUpdated
+        - event: SetNickname(indexed uint256,string)
+          handler: handleSetNickname
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+      file: ./src/character.ts

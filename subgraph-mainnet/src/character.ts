@@ -1,22 +1,24 @@
 import {
-  characterApproval as characterApprovalEvent,
-  characterApprovalForAll as characterApprovalForAllEvent,
+  Approval as ApprovalEvent,
+  ApprovalForAll as ApprovalForAllEvent,
   AuthorityUpdated as AuthorityUpdatedEvent,
   Evolve as EvolveEvent,
   Minted as MintedEvent,
   OwnerUpdated as OwnerUpdatedEvent,
   SetNickname as SetNicknameEvent,
-  characterTransfer as characterTransferEvent,
-} from "../generated/character/character";
+  Transfer as TransferEvent
+} from "../generated/character/character"
+
 
 import { Character } from "../generated/schema";
-import { getOrCreateUser, getRarity, getName, getCostLevelUp } from "./utils";
+import { getOrCreateUser, getRarity, getName, ZERO_ADDRESS } from "./utils";
+import { log } from "@graphprotocol/graph-ts";
 
 
-export function handlecharacterApproval(event: characterApprovalEvent): void {}
+export function handlecharacterApproval(event: ApprovalEvent): void {}
 
 export function handlecharacterApprovalForAll(
-  event: characterApprovalForAllEvent
+  event: ApprovalForAllEvent
 ): void {}
 
 export function handleAuthorityUpdated(event: AuthorityUpdatedEvent): void {}
@@ -48,16 +50,20 @@ export function handleMinted(event: MintedEvent): void {
 
 export function handleOwnerUpdated(event: OwnerUpdatedEvent): void {}
 
+
 export function handleSetNickname(event: SetNicknameEvent): void {
   const character = Character.load(event.params.id.toString()) as Character;
   character.nickname = event.params.name;
   character.save();
 }
 
-export function handlecharacterTransfer(event: characterTransferEvent): void {
-  const character = Character.load(event.params.id.toString()) as Character;
-  const user = getOrCreateUser(event.params.to);
+export function handleTransfer(event: TransferEvent): void {
+  //log.warning("Send NFT : {}, from {} to {} ", [event.params.id.toString(),event.params.from.toHex(),event.params.to.toHex()]);
 
-  character.owner = user.id;
-  character.save();
+  if(event.params.from.toHex() != ZERO_ADDRESS){
+    const character = Character.load(event.params.id.toString()) as Character;
+    const user = getOrCreateUser(event.params.to);
+    character.owner = user.id;
+    character.save();
+  }
 }
